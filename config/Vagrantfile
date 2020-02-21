@@ -1,0 +1,17 @@
+Vagrant.configure("2") do |config|
+  config.vm.provision "shell", inline: "echo 'Provisoning Kubernetes nodes...'"
+  
+  distro = "ubuntu/trusty64"
+  
+  config.vm.define "master" do |master|
+    master.vm.box = distro
+  end
+
+  config.vm.define "worker01" do |worker|
+    worker.vm.box = distro
+  end
+
+  config.vm.define "worker02" do |worker|
+    worker.vm.box = distro
+  end
+end
